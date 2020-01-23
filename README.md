@@ -1,19 +1,25 @@
-# Project Name
-Project description
+# Docusign API with Powershell
+This module of functions is designed for the <a href url="https://developers.docusign.com/">Docusign API</a>, to allow sending of documents and checking their status.
+
+# Prerequisites
+* Powershell v5.1
+* <a href url="https://developers.docusign.com/?">Docusign API</a>
+
+# Instructions
+You will need to have access to the Docusign API through a developer sandbox or your company/personal account.  Then you can import this module and being using the functions (after obtaining the appropriate API keys).
+
+Example:
+```
+Import-Module "C:\Docusign_Module.psm1" -Force
+```
 
 # Disclaimer
 No Support and No Warranty are provided by SMA Technologies for this project and related material. The use of this project's files is on your own risk.
 
 SMA Technologies assumes no liability for damage caused by the usage of any of the files offered here via this Github repository.
 
-# Prerequisites
-
-
-# Instructions
-
-
 # License
-Copyright 2019 SMA Technologies
+Copyright 2020 SMA Technologies
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
