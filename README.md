@@ -1,16 +1,17 @@
-# Docusign API with Powershell
-This module of functions is designed for the <a href url="https://developers.docusign.com/">Docusign API</a>, to allow sending of documents and checking their status.
+# Docusign with OpCon
+These examples are designed for the <a href url="https://developers.docusign.com/">Docusign API</a>, to allow sending of documents and checking their status.
 
 # Prerequisites
-* Powershell v5.1
+* Powershell v5.1 or Web Services subtype
 * <a href url="https://developers.docusign.com/?">Docusign API</a>
 
 # Instructions
 You will need to have access to the Docusign API through a developer sandbox or your company/personal account.  Then you can import this module and being using the functions (after obtaining the appropriate API keys).
 
-Example:
+Powershell Example:
 ```
 Import-Module "C:\Docusign_Module.psm1" -Force
+docusign_GetEnvelope -url $docusignUrl -access_token $accessToken -accountID $accountID -envelopeID $envelopeID
 ```
 
 # Disclaimer
