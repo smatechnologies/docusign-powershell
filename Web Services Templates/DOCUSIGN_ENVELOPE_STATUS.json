@@ -1,0 +1,41 @@
+{
+  "templateid" : "Docusign_GetEnvelope_Status",
+  "steps" : [ {
+    "function" : "GET",
+    "url" : "https://demo.docusign.net/restapi/v2/accounts/@accountId/envelopes/@envelopeId",
+    "request" : {
+      "headers" : [ {
+        "attribute" : "Authorization",
+        "value" : "Bearer @accessToken"
+      } ],
+      "contentType" : "application/json",
+      "body" : null,
+      "fileName" : null
+    },
+    "response" : {
+      "contentType" : "application/json",
+      "variables" : [ {
+        "name" : "@status",
+        "value" : "$.status"
+      } ],
+      "ignoreResult" : false,
+      "stepCompletionCode" : 200,
+      "responseDataCheck" : null,
+      "fileName" : null
+    }
+  } ],
+  "variables" : [ {
+    "name" : "@accessToken",
+    "value" : "??????"
+  }, {
+    "name" : "@envelopeId",
+    "value" : "??????"
+  }, {
+    "name" : "@accountId",
+    "value" : "??????"
+  } ],
+  "properties" : [ {
+    "name" : "JI.STATUS.[[$SCHEDULE DATE]].[[$SCHEDULE NAME]].[[$JOB NAME]]",
+    "value" : "@status"
+  } ]
+}

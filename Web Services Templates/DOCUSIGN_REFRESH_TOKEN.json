@@ -1,0 +1,47 @@
+{
+  "templateid" : "DOCUSIGN_REFRESH_TOKEN",
+  "steps" : [ {
+    "function" : "POST",
+    "url" : "https://account-d.docusign.com/oauth/token",
+    "request" : {
+      "headers" : [ {
+        "attribute" : "Authorization",
+        "value" : "Basic @User:@Password"
+      } ],
+      "contentType" : "application/x-www-form-urlencoded",
+      "body" : "grant_type=refresh_token&refresh_token=@refreshToken",
+      "fileName" : null
+    },
+    "response" : {
+      "contentType" : "application/json",
+      "variables" : [ {
+        "name" : "@newAccess",
+        "value" : "$.access_token"
+      }, {
+        "name" : "@newRefresh",
+        "value" : "$.refresh_token"
+      } ],
+      "ignoreResult" : false,
+      "stepCompletionCode" : 200,
+      "responseDataCheck" : null,
+      "fileName" : null
+    }
+  } ],
+  "variables" : [ {
+    "name" : "@refreshToken",
+    "value" : "??????"
+  }, {
+    "name" : "@User",
+    "value" : "??????"
+  }, {
+    "name" : "@Password",
+    "value" : "??????"
+  } ],
+  "properties" : [ {
+    "name" : "DOCUSIGN_ACCESS",
+    "value" : "@newAccess"
+  }, {
+    "name" : "DOCUSIGN_REFRESH",
+    "value" : "@newRefresh"
+  } ]
+}

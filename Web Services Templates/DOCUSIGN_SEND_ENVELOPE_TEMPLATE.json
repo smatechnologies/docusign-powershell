@@ -1,0 +1,64 @@
+{
+  "templateid" : "DOCUSIGN_SEND_DOCUMENT",
+  "steps" : [ {
+    "function" : "GET",
+    "url" : "https://demo.docusign.net/restapi/v2.1/accounts/@accountId/templates?search_text=@template",
+    "request" : {
+      "headers" : [ {
+        "attribute" : "Authorization",
+        "value" : "Bearer @accessToken"
+      } ],
+      "contentType" : "application/json",
+      "body" : null,
+      "fileName" : null
+    },
+    "response" : {
+      "contentType" : "application/json",
+      "variables" : [ {
+        "name" : "@tempId",
+        "value" : "$.envelopeTemplates[0].templateId"
+      } ],
+      "ignoreResult" : false,
+      "stepCompletionCode" : 200,
+      "responseDataCheck" : null,
+      "fileName" : null
+    }
+  }, {
+    "function" : "POST",
+    "url" : "https://demo.docusign.net/restapi/v2.1/accounts/@accountId/envelopes",
+    "request" : {
+      "headers" : [ {
+        "attribute" : "Authorization",
+        "value" : "Bearer @accessToken"
+      } ],
+      "contentType" : "application/json",
+      "body" : "{\"templateId\": \"@tempId\",\"emailSubject\": \"OpCon Docusign Demo for [[$SCHEDULE DATEYYYY-MM-DD]]\",\"status\": \"sent\",\r\n  \"templateRoles\":  [ { \"name\": \"Demo Role\",\"email\": \"[[SSI.EMAIL]]\",\"roleName\": \"signer\"} ],\r\n  \"EnvelopeRecipients\": [ { \"signer\": { \"roleName\": \"signer\" } } ] }",
+      "fileName" : null
+    },
+    "response" : {
+      "contentType" : "application/json",
+      "variables" : [ {
+        "name" : "@envelopeId",
+        "value" : "$.envelopeId"
+      } ],
+      "ignoreResult" : false,
+      "stepCompletionCode" : 201,
+      "responseDataCheck" : null,
+      "fileName" : null
+    }
+  } ],
+  "variables" : [ {
+    "name" : "@accessToken",
+    "value" : "??????"
+  }, {
+    "name" : "@accountId",
+    "value" : "??????"
+  }, {
+    "name" : "@template",
+    "value" : "??????"
+  } ],
+  "properties" : [ {
+    "name" : "JI.ENVELOPE.[[$SCHEDULE DATE]].[[$SCHEDULE NAME]].TRACK ENVELOPE STATUS",
+    "value" : "@envelopeId"
+  } ]
+}
